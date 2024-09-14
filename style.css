@@ -1,3 +1,7 @@
 .tartalom{
     border: .1px solid gray;
 }
+.kivalasztottak{
+    background-color: aquamarine;
+    padding: 2rem;
+}

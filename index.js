@@ -1,11 +1,29 @@
-import { cimKiiras } from "./fuggvenyek.js";
 import Kartyak from "./Kartyak.js";
-import Kartya from "./Kartya.js";
 import { kutyaLista } from "./adaok.js";
 
+const kivalasztottLista = [];
 let nev = "Dézi";
 const cim = "Kutyák minden mennyiségben";
 
+//melyik kártyára kattintunk? Az adatait tegyük listába
+//getter osztályba - getter meghívása
+
+
+const tartalomElem = $(".tartalom");
+const kivElem = $(".kivalasztottak");
+new Kartyak(kutyaLista, tartalomElem)
+
+$(window).on("kivalaszt", (event) =>{
+  console.log(event.detail)
+  kivalasztottLista.push(event.detail)
+  console.log(kivalasztottLista)
+  new Kartyak(kivalasztottLista, kivElem)
+})
+
+
+
+//adatKiiras(kutyaLista[0])
+//adatKiiras(kutyaLista[1])
 /* //objektumomat hozunk létre összetett adatszerkezet esetén
 const kutya1 = {
   nev: "Floki",
@@ -26,13 +44,3 @@ const nevlista = ["Dézi", "Jenő", "Béla"];
 const szamlista = [12, 23, 43, -23, 15.2];
 nevlista[0] = "Floki";
 console.log("lista: ", nevlista); */
-
-
-cimKiiras(cim);
-
-const tartalomElem = $(".tartalom");
-new Kartyak(kutyaLista, tartalomElem)
-
-
-//adatKiiras(kutyaLista[0])
-//adatKiiras(kutyaLista[1])

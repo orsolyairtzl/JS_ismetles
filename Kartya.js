@@ -5,18 +5,20 @@ constructor(kutya, szuloElem){
     this.#kutya =kutya
     this.szuloElem = szuloElem
     this.#adatKiiras()
-    this.gombElem = $(".kiválaszt:last")
-    console.log(this.gombElem)
-    this.#esemenyKezelo
+    this.gombElem = $(".kivalaszt:last")
+    this.#esemenyKezelo()
 }
     #esemenyKezelo(){
         //eseménykezelő a gombokhoz
-        this.gombElem.on = ("click", ()=>{
+        this.gombElem.on("click", ()=>{
         console.log(this) //az a html elem ami kiváltotta az eseményt
+        //létrehozunk egy saját eseményt
+        const e = new CustomEvent("kivalaszt", {detail:this.#kutya})
+        window.dispatchEvent(e)
     })
     }
     /*nem kell elé az export parancs,ez egy tagfüggvény*/
-    #adatKiiras(kutya) {
+    #adatKiiras() {
         
         this.szuloElem.append(`<div class ="col-lg-4 col-md-6 card">
           <h3 class="card-title">${this.#kutya.nev}</h3>
