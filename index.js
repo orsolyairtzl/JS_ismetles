@@ -1,5 +1,6 @@
 import { cimKiiras } from "./fuggvenyek.js";
-import { adatKiiras } from "./fuggvenyek.js";
+import Kartyak from "./Kartyak.js";
+import Kartya from "./Kartya.js";
 import { kutyaLista } from "./adaok.js";
 
 let nev = "Dézi";
@@ -29,17 +30,9 @@ console.log("lista: ", nevlista); */
 
 cimKiiras(cim);
 
-//lista kiíratás
-kutyaLista.forEach((kutya, index) =>{
-    console.log(kutya, index);
-    adatKiiras(kutya)
-} 
-)
-//eseménykezelő a gombokhoz
-const gombElem = $(".kivalaszt")
-gombElem.on("click", (event)=>{
-    console.log(event.target)
-})
+const tartalomElem = $(".tartalom");
+new Kartyak(kutyaLista, tartalomElem)
+
 
 //adatKiiras(kutyaLista[0])
 //adatKiiras(kutyaLista[1])

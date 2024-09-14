@@ -7,13 +7,3 @@ export function cimKiiras(cim) {
   //h1Elem.innerHTML += <p>+cim+</p>;
   h1Elem.append(`<p> ${cim} </p>`);
 }
-
-export function adatKiiras(kutya) {
-  const tartalomElem = $(".tartalom");
-  tartalomElem.append(`<div class ="col-lg-4 col-md-6 card">
-    <h3>${kutya.nev}</h3>
-    <p>kor: ${kutya.kor}</p>
-    <p>nem: ${kutya.nem}</p>
-    <button class="kivalaszt btn btn-success">Kiválaszt</button>
-    </div>`);
-}
